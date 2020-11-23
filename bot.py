@@ -53,7 +53,7 @@ class clientBot(discord.Client):
 		else:
 			return
 
-
+# load token, message channel name and command dictionary used by the bot
 TOKEN_FILE = "bot.token"
 CHANNEL_FILE = "text.channel"
 COMMANDS_FILE = "command.list"
