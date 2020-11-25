@@ -2,3 +2,4 @@ bot.token
 bot.clientSecret
 bot.log
 text.channel
+__pycache__
