@@ -9,16 +9,19 @@ import re
 import myutil
 
 class clientBot(discord.Client):
-	textChannel = ""
+	target_channels = []		#### THI LIST IS NOT SEEN IN THE FUNCTIONS BELOW !!!!
+	dummy="a"
 	async def on_ready(self):					# async event: when logged in do stuff
 		print("Logged in successfully as", self.user)
-		await Message.channel.send('turBot service is now online')
-		# message.channel.send('turBot service is now online')	# send to chat the bot is now available
-		textChannel = loadFromFile(CHANNEL_FILE)
+		target_channels = [self.get_channel(int(line.split("#")[0])) for line in open("text.channel",'r').readlines()] # list of channels of interest, obtained from their id stored in a file
+		for guild in self.guilds:
+			for channel in guild.channels:
+				if channel in target_channels:
+					await channel.send('turBot service is now online')
 
-	async def on_message(Message):
-		if Message.channel == textChannel and Message.author != self.user:	# check if the message comes from the channel where the bot has to read the chat
-			parsedMessage = Message.content.split()
+	async def on_message(self, message):
+		if message.channel in target_channels and message.author != self.user:	# check if the message comes from the channel where the bot has to read the chat
+			parsedMessage = message.content.split()
 			commandName = parsedMessage[0].lower()			# get command
 			if commandName in myutil.commandList:			# in a command message, the first string is the command name.
 				regex = myutil.commandList[commandName]["syn"]	# get the regex used to check if command arguments are correct
@@ -27,7 +30,7 @@ class clientBot(discord.Client):
 					if myutil.commandList[commandName]["exec_self"]: # execute the command the BOT has to do if any
 						exec(myutil.commandList[commandName]["exec_self"]) 
 					#try:
-						Message.channel.send('contacting turboServer...')
+						message.channel.send('contacting turboServer...')
 						# send message to minecraft@turboServer
 					#except asyncio.TimeoutError:
 						# tell that the server doesn't respond back...
