@@ -5,5 +5,3 @@ FILE ORGANIZATION:
 	bot.token:	Contains the bot token used to interface the API to the actual user-bot.
 	text.channel:	Contains the ids of the various channels, which belongs to a guild where the bot is part of. Those channels are the ones where the bot reads and responds.
 			As a human-help to recognize the channel, the discord guild name is written after the "#" symbol. The bot ignores this part!
-
-
