@@ -3,7 +3,6 @@
 # import os
 import sys
 import discord
-import json
 import datetime
 import re
 import myutil
@@ -30,12 +29,14 @@ class clientBot(discord.Client):
 					myutil.localActions(commandName)			# execute the command the BOT has to do if any
 					
 					#try:
-						#await message.channel.send('contacting turboServer...')
+						# using a socket send commands to the server!!! (socket type: Stream Socket (TCP))
+						# await message.channel.send('contacting turboServer...')
 						# send message to minecraft@turboServer
 					#except asyncio.TimeoutError:
+						#await message.channel.send("[ ERROR ]: No response given by minecraft@turboServer")
 						# wait for the server response: if not received in a time window, tell that the server doesn't respond back...
 				else:
-					message.channel.send("Invalid syntax!\n" + myutil.getInfo(commandName))
+					message.channel.send("[ ERROR ]: Invalid syntax!\n" + myutil.getInfo(commandName))
 		else:
 			return
 

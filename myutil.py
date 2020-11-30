@@ -34,27 +34,27 @@ commandList={
 	"start":{	"info":"Start a specific Minecraft world.\n\tSyntax: start <world_name/enumeration>",
 			"syn":"([0-9]|[a-zA-Z])+",
 			"send":"dummy",
-			"exec_self":start},
+			"turboServer":start},
 	"stop":{	"info":"Stop a specific Minecraft world.\n\tSyntax: stop <world_name/enumeration>",
 			"syn":"([0-9]|[a-zA-Z])+",
 			"send":"",
-			"exec_self":stop},
+			"turboServer":stop},
 	"numworld":{	"info":"List the world names available for this Discord guild",
 			"syn":"",
 			"send":"",
-			"exec_self":""},
+			"turboServer":""},
 	"regrade":{	"info":"Make the specified world point to a different server version instance\nWARNING: be carefull when regrade to a lower version!!! This operation could break your world!!!",
 			"syn":"<world_name> <server_version>",
 			"send":"",
-			"exec_self":""},
+			"turboServer":""},
 	"new":{	"info":"Create a new Minecraft world with the specified name and version. This will also associate a identifier number to it.\n\tSyntax: new <server_version> <world_name>",
 			"syn":"",
 			"send":"",
-			"exec_self":""},
+			"turboServer":""},
 	"help":{	"info":"Get the information about what this BOT can do",
 			"syn":"",
 			"send":help,
-			"exec_self":""}
+			"turboServer":""}
 }
 
 ## general bot utilities
