@@ -3,3 +3,4 @@ bot.clientSecret
 bot.log
 text.channel
 __pycache__
+tcp*
