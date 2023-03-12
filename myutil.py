@@ -8,11 +8,14 @@ def start():
 
 def stop():
 	return
+	
+def turbo():
+	return
 
 def help():
 	outstring="INTERNAL REFERENCE MANUAL:\n"
 	for command in commandList:
-		outstring = outstring + command + ": " + commandList[command]["info"] + "\n\n\n"
+		outstring = outstring + "**"+command+"**" + ": " + commandList[command]["info"] + "\n\n\n"
 	return outstring
 
 def isCommand(commandName):
@@ -31,11 +34,11 @@ def getInfo(commandName):
 	return commandList[commandName]["info"]
 
 commandList={
-	"start":{	"info":"Start a specific Minecraft world.\n\tSyntax: start <world_name/enumeration>",
+	"start":{	"info":"Start a specific Minecraft world.\n\tSyntax: ```start <world_name/enumeration>```",
 			"syn":"([0-9]|[a-zA-Z])+",
 			"send":"dummy",
 			"turboServer":start},
-	"stop":{	"info":"Stop a specific Minecraft world.\n\tSyntax: stop <world_name/enumeration>",
+	"stop":{	"info":"Stop a specific Minecraft world.\n\tSyntax: ```stop <world_name/enumeration>```",
 			"syn":"([0-9]|[a-zA-Z])+",
 			"send":"",
 			"turboServer":stop},
@@ -47,10 +50,14 @@ commandList={
 			"syn":"<world_name> <server_version>",
 			"send":"",
 			"turboServer":""},
-	"new":{	"info":"Create a new Minecraft world with the specified name and version. This will also associate a identifier number to it.\n\tSyntax: new <server_version> <world_name>",
+	"new":{	"info":"Create a new Minecraft world with the specified name and version. This will also associate a identifier number to it.\n\tSyntax: ```new <server_version> <world_name>```",
 			"syn":"",
 			"send":"",
 			"turboServer":""},
+	"mine":{	"info": "Send this string to turboServer as a Minecraft command line string. It obeys minecraft command syntax",
+			"syn":"",
+			"send":"",
+			"turboServer":turbo}
 	"help":{	"info":"Get the information about what this BOT can do",
 			"syn":"",
 			"send":help,
